@@ -67,7 +67,7 @@
 <part>user_id</part>
 </key>
 </table>
-<table x="267" y="409" name="projects">
+<table x="162" y="420" name="projects">
 <row name="project_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -89,7 +89,7 @@
 <datatype>DATE</datatype>
 </row>
 <row name="description" null="0" autoincrement="0">
-<datatype>VARCHAR(255)</datatype>
+<datatype>MEDIUMTEXT</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>project_id</part>
@@ -100,7 +100,7 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="task_name" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(255)</datatype>
 </row>
 <row name="user_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -114,20 +114,23 @@
 <datatype>INTEGER</datatype>
 <relation table="projects" row="project_id" />
 </row>
+<row name="description" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
 <key type="PRIMARY" name="">
 <part>task_id</part>
 </key>
 </table>
-<table x="426" y="111" name="comments">
+<table x="421" y="105" name="comments">
 <row name="comment_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
 <row name="comment_text" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(255)</datatype>
 </row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="users" row="user_id" />
+<default>NULL</default><relation table="users" row="user_id" />
 </row>
 <row name="project_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -135,6 +138,9 @@
 </row>
 <row name="date_time" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
+</row>
+<row name="active" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>comment_id</part>
@@ -145,7 +151,7 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="rank_name" null="0" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>VARCHAR(255)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>rank_id</part>
