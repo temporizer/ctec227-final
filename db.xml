@@ -121,7 +121,7 @@
 <part>task_id</part>
 </key>
 </table>
-<table x="421" y="105" name="comments">
+<table x="378" y="107" name="comments">
 <row name="comment_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -146,7 +146,7 @@
 <part>comment_id</part>
 </key>
 </table>
-<table x="671" y="342" name="ranks">
+<table x="490" y="421" name="ranks">
 <row name="rank_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
