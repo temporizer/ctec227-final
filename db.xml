@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
 <!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="114" y="33" name="users">
+</datatypes><table x="182" y="213" name="user">
 <row name="user_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -56,18 +56,18 @@
 <row name="username" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
-<row name="password" null="0" autoincrement="0">
-<datatype>VARCHAR(255)</datatype>
+<row name="pass" null="0" autoincrement="0">
+<datatype>CHAR(40)</datatype>
 </row>
 <row name="rank_id" null="0" autoincrement="0">
 <datatype>ENUM</datatype>
-<relation table="ranks" row="rank_id" />
+<relation table="rank" row="rank_id" />
 </row>
 <key type="PRIMARY" name="">
 <part>user_id</part>
 </key>
 </table>
-<table x="162" y="420" name="projects">
+<table x="203" y="496" name="project">
 <row name="project_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -76,7 +76,7 @@
 </row>
 <row name="user_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="users" row="user_id" />
+<relation table="user" row="user_id" />
 </row>
 <row name="status_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -91,37 +91,36 @@
 <row name="description" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 </row>
+<row name="active" null="0" autoincrement="0">
+<datatype>ENUM</datatype>
+</row>
 <key type="PRIMARY" name="">
 <part>project_id</part>
 </key>
 </table>
-<table x="782" y="32" name="tasks">
+<table x="998" y="384" name="task">
 <row name="task_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
 <row name="task_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
-<row name="user_id" null="0" autoincrement="0">
+<row name="description" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="project_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="users" row="user_id" />
+<relation table="project" row="project_id" />
 </row>
 <row name="status_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="status" row="status_id" />
 </row>
-<row name="project_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="projects" row="project_id" />
-</row>
-<row name="description" null="0" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
-</row>
 <key type="PRIMARY" name="">
 <part>task_id</part>
 </key>
 </table>
-<table x="378" y="107" name="comments">
+<table x="477" y="60" name="comment">
 <row name="comment_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -130,11 +129,11 @@
 </row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="user_id" />
+<default>NULL</default><relation table="user" row="user_id" />
 </row>
 <row name="project_id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="projects" row="project_id" />
+<relation table="project" row="project_id" />
 </row>
 <row name="date_time" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
@@ -146,7 +145,7 @@
 <part>comment_id</part>
 </key>
 </table>
-<table x="490" y="421" name="ranks">
+<table x="483" y="334" name="rank">
 <row name="rank_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
@@ -157,15 +156,25 @@
 <part>rank_id</part>
 </key>
 </table>
-<table x="774" y="496" name="status">
+<table x="559" y="568" name="status">
 <row name="status_id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 </row>
 <row name="status_title" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR(255)</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>status_id</part>
 </key>
+</table>
+<table x="784" y="280" name="task_user">
+<row name="task_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="task" row="task_id" />
+</row>
+<row name="user_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="user" row="user_id" />
+</row>
 </table>
 </sql>
