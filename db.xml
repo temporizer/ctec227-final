@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
 <!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
 <sql>
@@ -39,28 +39,28 @@
 	</group>
 </datatypes><table x="182" y="213" name="user">
 <row name="user_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="first_name" null="0" autoincrement="1">
+<datatype>INTEGER(11)</datatype>
+</row>
+<row name="first_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
-<default>'NULL'</default></row>
+</row>
 <row name="last_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
-<default>'NULL'</default></row>
+</row>
 <row name="email" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
 <row name="active" null="0" autoincrement="0">
-<datatype>ENUM</datatype>
+<datatype>ENUM('0','1')</datatype>
 </row>
 <row name="username" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
 <row name="pass" null="0" autoincrement="0">
-<datatype>CHAR(40)</datatype>
+<datatype>VARCHAR(40)</datatype>
 </row>
 <row name="rank_id" null="0" autoincrement="0">
-<datatype>ENUM</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="rank" row="rank_id" />
 </row>
 <key type="PRIMARY" name="">
@@ -69,17 +69,17 @@
 </table>
 <table x="203" y="496" name="project">
 <row name="project_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 </row>
 <row name="project_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
 <row name="user_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="user" row="user_id" />
 </row>
 <row name="status_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="status" row="status_id" />
 </row>
 <row name="start_date" null="0" autoincrement="0">
@@ -92,7 +92,7 @@
 <datatype>MEDIUMTEXT</datatype>
 </row>
 <row name="active" null="0" autoincrement="0">
-<datatype>ENUM</datatype>
+<datatype>ENUM('0','1')</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>project_id</part>
@@ -100,7 +100,7 @@
 </table>
 <table x="998" y="384" name="task">
 <row name="task_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 </row>
 <row name="task_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
@@ -109,11 +109,11 @@
 <datatype>MEDIUMTEXT</datatype>
 </row>
 <row name="project_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="project" row="project_id" />
 </row>
 <row name="status_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="status" row="status_id" />
 </row>
 <key type="PRIMARY" name="">
@@ -122,24 +122,24 @@
 </table>
 <table x="477" y="60" name="comment">
 <row name="comment_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 </row>
 <row name="comment_text" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 </row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user" row="user_id" />
+<row name="user_id" null="0" autoincrement="0">
+<datatype>INTEGER(11)</datatype>
+<relation table="user" row="user_id" />
 </row>
 <row name="project_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="project" row="project_id" />
 </row>
 <row name="date_time" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 </row>
 <row name="active" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>ENUM('0','1')</datatype>
 </row>
 <key type="PRIMARY" name="">
 <part>comment_id</part>
@@ -147,7 +147,7 @@
 </table>
 <table x="483" y="334" name="rank">
 <row name="rank_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 </row>
 <row name="rank_name" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
@@ -158,7 +158,7 @@
 </table>
 <table x="559" y="568" name="status">
 <row name="status_id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 </row>
 <row name="status_title" null="0" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
@@ -169,11 +169,11 @@
 </table>
 <table x="784" y="280" name="task_user">
 <row name="task_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="task" row="task_id" />
 </row>
 <row name="user_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>INTEGER(11)</datatype>
 <relation table="user" row="user_id" />
 </row>
 </table>
