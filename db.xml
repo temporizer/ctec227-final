@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="182" y="213" name="user">
+</datatypes><table x="130" y="35" name="user">
 <row name="user_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -67,7 +67,7 @@
 <part>user_id</part>
 </key>
 </table>
-<table x="203" y="496" name="project">
+<table x="105" y="359" name="project">
 <row name="project_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -98,7 +98,7 @@
 <part>project_id</part>
 </key>
 </table>
-<table x="998" y="384" name="task">
+<table x="708" y="350" name="task">
 <row name="task_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -120,7 +120,7 @@
 <part>task_id</part>
 </key>
 </table>
-<table x="477" y="60" name="comment">
+<table x="570" y="39" name="comment">
 <row name="comment_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -145,7 +145,7 @@
 <part>comment_id</part>
 </key>
 </table>
-<table x="483" y="334" name="rank">
+<table x="457" y="283" name="rank">
 <row name="rank_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -156,7 +156,7 @@
 <part>rank_id</part>
 </key>
 </table>
-<table x="559" y="568" name="status">
+<table x="440" y="479" name="status">
 <row name="status_id" null="0" autoincrement="1">
 <datatype>INTEGER(11)</datatype>
 </row>
@@ -167,7 +167,7 @@
 <part>status_id</part>
 </key>
 </table>
-<table x="784" y="280" name="task_user">
+<table x="671" y="214" name="task_user">
 <row name="task_id" null="0" autoincrement="0">
 <datatype>INTEGER(11)</datatype>
 <relation table="task" row="task_id" />
