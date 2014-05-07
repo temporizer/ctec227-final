@@ -1,165 +1,172 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.8
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: May 07, 2014 at 08:06 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.9
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
+--
+-- Database: `ctec227_final`
+--
 
+-- --------------------------------------------------------
 
--- ---
--- Globals
--- ---
+--
+-- Table structure for table `comment`
+--
 
--- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
--- SET FOREIGN_KEY_CHECKS=0;
-
--- ---
--- Table 'user'
--- 
--- ---
-
-DROP TABLE IF EXISTS `user`;
-		
-CREATE TABLE `user` (
-  `user_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `first_name` VARCHAR(255) NOT NULL,
-  `last_name` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `active` ENUM('0','1') NOT NULL,
-  `username` VARCHAR(255) NOT NULL,
-  `pass` VARCHAR(40) NOT NULL,
-  `rank_id` INTEGER(11) NOT NULL,
-  PRIMARY KEY (`user_id`)
-);
-
--- ---
--- Table 'project'
--- 
--- ---
-
-DROP TABLE IF EXISTS `project`;
-		
-CREATE TABLE `project` (
-  `project_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `project_name` VARCHAR(255) NOT NULL,
-  `user_id` INTEGER(11) NOT NULL,
-  `status_id` INTEGER(11) NOT NULL,
-  `start_date` DATE NOT NULL,
-  `end_date` DATE NOT NULL,
-  `description` MEDIUMTEXT NOT NULL,
-  `active` ENUM('0','1') NOT NULL,
-  PRIMARY KEY (`project_id`)
-);
-
--- ---
--- Table 'task'
--- 
--- ---
-
-DROP TABLE IF EXISTS `task`;
-		
-CREATE TABLE `task` (
-  `task_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `task_name` VARCHAR(255) NOT NULL,
-  `description` MEDIUMTEXT NOT NULL,
-  `project_id` INTEGER(11) NOT NULL,
-  `status_id` INTEGER(11) NOT NULL,
-  PRIMARY KEY (`task_id`)
-);
-
--- ---
--- Table 'comment'
--- 
--- ---
-
-DROP TABLE IF EXISTS `comment`;
-		
 CREATE TABLE `comment` (
-  `comment_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `comment_text` VARCHAR(255) NOT NULL,
-  `user_id` INTEGER(11) NOT NULL,
-  `project_id` INTEGER(11) NOT NULL,
-  `date_time` DATETIME NOT NULL,
-  `active` ENUM('0','1') NOT NULL,
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_text` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `date_time` int(11) NOT NULL,
+  `active` enum('0','1') NOT NULL,
   PRIMARY KEY (`comment_id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- ---
--- Table 'rank'
--- 
--- ---
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `rank`;
-		
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `project_id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_name` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
+  `start_date` int(11) NOT NULL,
+  `end_date` int(11) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `active` enum('0','1') NOT NULL,
+  PRIMARY KEY (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rank`
+--
+
 CREATE TABLE `rank` (
-  `rank_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `rank_name` VARCHAR(255) NOT NULL,
+  `rank_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rank_name` varchar(255) NOT NULL,
   PRIMARY KEY (`rank_id`)
-);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
--- ---
--- Table 'status'
--- 
--- ---
+--
+-- Dumping data for table `rank`
+--
 
-DROP TABLE IF EXISTS `status`;
-		
+INSERT INTO `rank` (`rank_id`, `rank_name`) VALUES
+(1, 'Admin'),
+(2, 'Task Worker'),
+(3, 'Project Manager');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
 CREATE TABLE `status` (
-  `status_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `status_title` VARCHAR(255) NOT NULL,
+  `status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status_title` varchar(255) NOT NULL,
   PRIMARY KEY (`status_id`)
-);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
--- ---
--- Table 'task_user'
--- 
--- ---
+--
+-- Dumping data for table `status`
+--
 
-DROP TABLE IF EXISTS `task_user`;
-		
+INSERT INTO `status` (`status_id`, `status_title`) VALUES
+(1, 'Open'),
+(2, 'Completed'),
+(3, 'Completed - Pending'),
+(4, 'Closed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `task`
+--
+
+CREATE TABLE `task` (
+  `task_id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_name` varchar(255) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
+  PRIMARY KEY (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `task_user`
+--
+
 CREATE TABLE `task_user` (
-  `task_id` INTEGER(11) NOT NULL,
-  `user_id` INTEGER(11) NOT NULL
-);
+  `task_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ---
--- Foreign Keys 
--- ---
+-- --------------------------------------------------------
 
-ALTER TABLE `user` ADD FOREIGN KEY (rank_id) REFERENCES `rank` (`rank_id`);
-ALTER TABLE `project` ADD FOREIGN KEY (user_id) REFERENCES `user` (`user_id`);
-ALTER TABLE `project` ADD FOREIGN KEY (status_id) REFERENCES `status` (`status_id`);
-ALTER TABLE `task` ADD FOREIGN KEY (project_id) REFERENCES `project` (`project_id`);
-ALTER TABLE `task` ADD FOREIGN KEY (status_id) REFERENCES `status` (`status_id`);
-ALTER TABLE `comment` ADD FOREIGN KEY (user_id) REFERENCES `user` (`user_id`);
-ALTER TABLE `comment` ADD FOREIGN KEY (project_id) REFERENCES `project` (`project_id`);
-ALTER TABLE `task_user` ADD FOREIGN KEY (task_id) REFERENCES `task` (`task_id`);
-ALTER TABLE `task_user` ADD FOREIGN KEY (user_id) REFERENCES `user` (`user_id`);
+--
+-- Table structure for table `user`
+--
 
--- ---
--- Table Properties
--- ---
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `active` enum('0','1') NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `pass` varchar(40) NOT NULL,
+  `rank_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
--- ALTER TABLE `user` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `project` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `task` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `comment` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `rank` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `status` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `task_user` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+--
+-- Dumping data for table `user`
+--
 
--- ---
--- Test Data
--- ---
-
--- INSERT INTO `user` (`user_id`,`first_name`,`last_name`,`email`,`active`,`username`,`pass`,`rank_id`) VALUES
--- ('','','','','','','','');
--- INSERT INTO `project` (`project_id`,`project_name`,`user_id`,`status_id`,`start_date`,`end_date`,`description`,`active`) VALUES
--- ('','','','','','','','');
--- INSERT INTO `task` (`task_id`,`task_name`,`description`,`project_id`,`status_id`) VALUES
--- ('','','','','');
--- INSERT INTO `comment` (`comment_id`,`comment_text`,`user_id`,`project_id`,`date_time`,`active`) VALUES
--- ('','','','','','');
--- INSERT INTO `rank` (`rank_id`,`rank_name`) VALUES
--- ('','');
--- INSERT INTO `status` (`status_id`,`status_title`) VALUES
--- ('','');
--- INSERT INTO `task_user` (`task_id`,`user_id`) VALUES
--- ('','');
-
+INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `active`, `username`, `pass`, `rank_id`) VALUES
+(1, 'Madonna', 'Taylor', 'm.taylor@greenwell.com', '1', 'm.taylor', 'TLE35YMQ6VF', 1),
+(2, 'August', 'Vaughan', 'a.vaughan@greenwell.com', '1', 'a.vaughan', 'JEZ85UOM7UC', 2),
+(3, 'Demetria', 'Thompson', 'd.thompson@greenwell.com', '1', 'd.thompson', 'GDZ24JHJ2QM', 1),
+(4, 'Caleb', 'Bridges', 'c.bridges@greenwell.com', '0', 'c.bridges', 'UMS55YMO1ET', 3),
+(5, 'Chandler', 'Woodard', 'c.woodard@greenwell.com', '0', 'c.woodard', 'ZCA67PEU5QO', 2),
+(6, 'Wang', 'Pierce', 'w.pierce@greenwell.com', '1', 'w.pierce', 'MSC52FFQ3TP', 3),
+(7, 'Dominic', 'Boyd', 'd.boyd@greenwell.com', '0', 'd.boyd', 'VKQ25CXZ3EG', 1),
+(8, 'Aaron', 'Hale', 'a.hale@greenwell.com', '1', 'a.hale', 'IWD93OHJ9BR', 3),
+(9, 'Oliver', 'Campbell', 'o.campbell@greenwell.com', '0', 'o.campbell', 'NOX07OLC5YE', 2),
+(10, 'Herrod', 'Blake', 'h.blake@greenwell.com', '1', 'h.blake', 'ABD45VKX4EA', 1),
+(11, 'Coby', 'Whitehead', 'c.whitehead@greenwell.com', '0', 'c.whitehead', 'HQO53PKQ2MY', 1),
+(12, 'Dorian', 'Kemp', 'd.kemp@greenwell.com', '0', 'd.kemp', 'EEH18EMI9IE', 1),
+(13, 'Griffith', 'Tyson', 'g.tyson@greenwell.com', '0', 'g.tyson', 'CGP53WQL1QN', 2),
+(14, 'Kylan', 'Montoya', 'k.montoya@greenwell.com', '1', 'k.montoya', 'BLC53PAA0VW', 1),
+(15, 'Macey', 'Britt', 'm.britt@greenwell.com', '0', 'm.britt', 'YGI96HJB1CO', 2),
+(16, 'Dean', 'Ortiz', 'd.ortiz@greenwell.com', '1', 'd.ortiz', 'MLL19QUO4PZ', 3),
+(17, 'Tatum', 'Harris', 't.harris@greenwell.com', '1', 't.harris', 'LBV73AOQ7LF', 2),
+(18, 'Brent', 'Holman', 'b.holman@greenwell.com', '0', 'b.holman', 'IDI09TYC7EE', 3),
+(19, 'Abraham', 'Guy', 'a.guy@greenwell.com', '1', 'a.guy', 'IBU85YEW7RD', 1),
+(20, 'Chandler', 'Estes', 'c.estes@greenwell.com', '1', 'c.estes', 'MIQ81MVW4CO', 2),
+(21, 'Latifah', 'Rose', 'l.rose@greenwell.com', '1', 'l.rose', 'SLO80NBD1JW', 3),
+(22, 'Wang', 'Daniels', 'w.daniels@greenwell.com', '0', 'w.daniels', 'QBC76JVH2YO', 2),
+(23, 'Hedley', 'Fuller', 'h.fuller@greenwell.com', '0', 'h.fuller', 'RBH24JRO6IN', 2),
+(24, 'Logan', 'Bass', 'l.bass@greenwell.com', '0', 'l.bass', 'VLN19UDC6QJ', 1),
+(25, 'Alfonso', 'King', 'a.king@greenwell.com', '0', 'a.king', 'RHF54JEA0YA', 1),
+(26, 'Silas', 'Cline', 's.cline@greenwell.com', '0', 's.cline', 'CEI71IUD3FV', 3),
+(27, 'Ashely', 'Mcdonald', 'a.mcdonald@greenwell.com', '1', 'a.mcdonald', 'EXY69KHJ4QW', 1),
+(28, 'Rae', 'Hall', 'r.hall@greenwell.com', '1', 'r.hall', 'HMH11TKT0RA', 3),
+(29, 'Ulric', 'Woodard', 'u.woodard@greenwell.com', '0', 'u.woodard', 'HGB96ZNI8CA', 1),
+(30, 'Holmes', 'Wilkins', 'h.wilkins@greenwell.com', '1', 'h.wilkins', 'YMK04MJB3EV', 2);

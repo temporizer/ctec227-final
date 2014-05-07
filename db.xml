@@ -83,10 +83,10 @@
 <relation table="status" row="status_id" />
 </row>
 <row name="start_date" null="0" autoincrement="0">
-<datatype>DATE</datatype>
+<datatype>INT(11)</datatype>
 </row>
 <row name="end_date" null="0" autoincrement="0">
-<datatype>DATE</datatype>
+<datatype>INT(11)</datatype>
 </row>
 <row name="description" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
@@ -136,7 +136,7 @@
 <relation table="project" row="project_id" />
 </row>
 <row name="date_time" null="0" autoincrement="0">
-<datatype>DATETIME</datatype>
+<datatype>INT(11)</datatype>
 </row>
 <row name="active" null="0" autoincrement="0">
 <datatype>ENUM('0','1')</datatype>
