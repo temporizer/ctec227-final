@@ -1,0 +1,61 @@
+functions:
+
+
+	login system:
+
+		userExist($username, $password) {
+			check to see is user exists in databse
+
+			if true and is 'active':
+				return true
+			if true:
+				show error message on login screen
+				return false
+
+		}
+
+		login() {
+			if userExist returns true
+				set $_SESSION variables:
+					$_SESSION['user_id']
+					$_SESSION['first_name']
+					$_SESSION['last_name']
+					$_SESSION['email']
+					$_SESSION['username']
+					$_SESSION['rank_id']
+		}
+
+		logout() {
+			session_destroy()
+			redirect to index.php
+		}
+
+
+
+	projects
+
+		getAllProjects() {	//for default viewer
+			get projects from database if 'active'
+				along with:
+					project_id
+					project_name
+					user_id
+					status_id
+					start_date
+					end_date
+					description
+				return multidimensional array $projects[]
+		}
+
+		getUserProjects($SESSION['user_id'], $_SESSION['rank_id']) {
+			get projects based on user_id and rank_id
+				if rank_id = 2   //project manager rank
+					get project managers projects
+				if rank_id = 3   //task worker rank
+					get task workers projects
+		}
+
+		getUserTasks($_SESSION['user_id'], $_SESSION['rank_id']) {
+			get tasks based on user_id and rank_id
+				
+		}
