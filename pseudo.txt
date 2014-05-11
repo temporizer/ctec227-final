@@ -1,7 +1,7 @@
 functions:
 
 
-	login system:
+	Login system:
 
 		userExist($username, $password) {
 			check to see is user exists in databse
@@ -34,13 +34,16 @@ functions:
 		}
 
 		logout() {
-			session_destroy()
-			redirect to index.php
+			if isLoggedIn() returns true
+				session_destroy()
+				redirect to index.php
+			else 
+				redirect to index.php
 		}
 
 
 
-	get active users:
+	Users:
 
 		getUsers() {
 			get users if active = 1
@@ -69,6 +72,31 @@ functions:
 				return array of project_id's
 		}
 
+
+		createProject($_SESSION['user_id'], 'project_name', 'start_date', 'end_date', 'description') {
+			if rank_id = 2
+				create project
+					insert into projects('', 'project_name', 'user_id', status_id = 1, 'start_date', 'end_date', 'description', active=1)
+		}
+
+		closeProject('project_id') {
+			update project(status_id) where project_id = 'project_id'
+		}
+
+
+
+
+	Tasks:
+
+		createTask($_SESSION['user_id'], 'task_name', 'description', 'project_id') {
+			if $_SESSION['rank_id'] = 1 or 2
+				update task('', 'task_name', 'description', 'project_id', status_id = 1)
+		}
+
+		assignTasks($_SESSION['user_id'], user_id, task_id) {
+			update task_user(task_id, user_id)
+		}
+
 		getUserTasks($_SESSION['user_id']) {
 			get tasks based on user_id
 				return array of task_id's
@@ -78,8 +106,6 @@ functions:
 			get tasks based on project
 		}
 
-		createProject($_SESSION['user_id'], 'project_name', 'start_date', 'end_date', 'description') {
-			if rank_id = 2
-				create project
-					insert into database('', 'project_name', 'user_id', status_id = 1, 'start_date', 'end_date', 'description', active=1)
+		pendCompleteTask(task_id) {
+			update task(task_id, status_id)
 		}
