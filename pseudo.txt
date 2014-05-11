@@ -64,17 +64,18 @@ functions:
 				return multidimensional array $projects[]
 		}
 
-		getUserProjects($SESSION['user_id'], $_SESSION['rank_id']) {
-			get projects based on user_id and rank_id
-				if rank_id = 2   //project manager rank
-					get project managers projects
-				if rank_id = 3   //task worker rank
-					get task workers projects
+		getUserProjects($SESSION['user_id']) {
+			get projects based on user_id
+				return array of project_id's
 		}
 
-		getUserTasks($_SESSION['user_id'], $_SESSION['rank_id']) {
-			get tasks based on user_id and rank_id
-				
+		getUserTasks($_SESSION['user_id']) {
+			get tasks based on user_id
+				return array of task_id's
+		}
+
+		getProjectTasks(project_id) {
+			get tasks based on project
 		}
 
 		createProject($_SESSION['user_id'], 'project_name', 'start_date', 'end_date', 'description') {
