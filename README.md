@@ -5,4 +5,4 @@ Final for ctec227
 
 After cloning:
 * Create a database called ctec227_final
-* Import db.sql to create the database structure
+* Import ctec227_final.sql to create the database structure
