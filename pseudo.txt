@@ -23,11 +23,28 @@ functions:
 					$_SESSION['email']
 					$_SESSION['username']
 					$_SESSION['rank_id']
+					$_SESSION['logged_in'] = true
+		}
+
+		isLoggedIn() {
+			if $_SESSION['logged_in'] == true
+				return true
+			else
+				return false
 		}
 
 		logout() {
 			session_destroy()
 			redirect to index.php
+		}
+
+
+
+	get active users:
+
+		getUsers() {
+			get users if active = 1
+			return array of user_id's
 		}
 
 
@@ -58,4 +75,10 @@ functions:
 		getUserTasks($_SESSION['user_id'], $_SESSION['rank_id']) {
 			get tasks based on user_id and rank_id
 				
+		}
+
+		createProject($_SESSION['user_id'], 'project_name', 'start_date', 'end_date', 'description') {
+			if rank_id = 2
+				create project
+					insert into database('', 'project_name', 'user_id', status_id = 1, 'start_date', 'end_date', 'description', active=1)
 		}
