@@ -61,11 +61,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   font-family: Helvetica, sans-serif;
   font-size: 1.4em;
-  width:1200px;
+  min-width:1000px;
   background-color: #D0D0D0; 
 }
 header{
-  width: 1000px;
+  
   height: 120px;
   background-color: #85855C;
 
