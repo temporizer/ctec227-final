@@ -19,7 +19,8 @@
 				
 			</div> <!-- end logo -->
 			<div class="title">
-				
+			<p>Green Well Bank</p>
+			<p>Project Management System</p>	
 			</div>
 			
 			<nav>
