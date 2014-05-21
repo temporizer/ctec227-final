@@ -16,6 +16,7 @@
 	<section id="wrapper">
 		<header>
 			<div class="logo">
+				<img src="images/GreenWell_Bank.png" alt="logo of a green well"> 
 				
 			</div> <!-- end logo -->
 			<div class="title">
