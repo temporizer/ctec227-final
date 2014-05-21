@@ -16,10 +16,11 @@
 	<section id="wrapper">
 		<header>
 			<div class="logo">
+				<img src="images/GreenWell_Bank.png" alt="logo of a green well"> 
 				
 			</div> <!-- end logo -->
 			<div class="title">
-			<p>Green Well Bank</p>
+			<p>Greenwell Bank</p>
 			<p>Project Management System</p>	
 			</div>
 			
