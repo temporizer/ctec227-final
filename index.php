@@ -2,6 +2,6 @@
 
 <?php login('j.conklin', 'password'); ?>
 
-<pre><?php print_r ?></pre>
+<pre><?php print_r($_SESSION) ?></pre>
 
 <?php include 'includes/footer.inc.php'; ?>
