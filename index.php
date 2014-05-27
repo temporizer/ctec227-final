@@ -5,7 +5,7 @@
 <?php } else {
 	include('login.php');
 	} ?>
-
+  
 
 <h1>Please log in to make changes</h1>
 <table></table>
