@@ -1,7 +1,7 @@
 <?php include 'includes/header.inc.php'; ?>
 
 
-<?php login('j.conklin', 'password'); ?>
+<?php //login('j.conklin', 'password'); ?>
 
 <h1 class="mighty">List of Projects</h1>
 <h2>Please log in to see details and to make changes.</h2>
