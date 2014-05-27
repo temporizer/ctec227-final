@@ -20,8 +20,8 @@
 				
 			</div> <!-- end logo -->
 			<div class="title">
-			<p>Greenwell Bank</p>
-			<p>Project Management System</p>	
+			<p><strong>Greenwell Bank</strong></p>
+			<p><strong>Project Management System</strong></p>	
 			</div>
 			
 			<nav>
