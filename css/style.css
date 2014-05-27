@@ -70,6 +70,13 @@ header{
   background-color: #9DCE9D;
 
 }
+h1 {margin-left:300px;
+  margin-bottom: 30px;
+}
+h2 {
+  color: red;
+  margin-left:150px;
+}
 .logo{
   width: 200px;
   height:120px;
@@ -81,4 +88,25 @@ header{
 .title{
   text-align:center;
   padding-top: 50px;
+}
+table {
+  border-collapse: 
+  border: 1.5px solid black;
+  margin-left: 60px;
+  margin-top: 25px;
+}
+th{
+  text-align: left;
+  background: gray;
+  color: white;
+  padding: 0.4em;
+}
+td {
+  border: 1.5px solid black;
+  padding: 0.4em;
+}
+.mighty {
+  font-size: 30px;
+  /*border:1.5px solid black;*/
+  font-family: Impact, Charcoal, sans-serif
 }
