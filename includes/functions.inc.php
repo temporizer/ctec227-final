@@ -24,22 +24,28 @@ function login($username, $password) {
 		$_SESSION['rank_id'] = $user['rank_id'];
 		$_SESSION['logged_in'] = true;
 	} else {
-		echo "false";
-		return false;
+		$error = "Incorrect username/password combination";
+		echo $error;
 	}
 		
+}
+
+// Checks to see if user is logged in or not
+function isLoggedIn() {
+	if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+		return true;
+	} else {
+		return false;
 	}
+}
 
-// login() {
-// 			if userExist returns true
-// 				set $_SESSION variables:
-// 					$_SESSION['user_id']
-// 					$_SESSION['first_name']
-// 					$_SESSION['last_name']
-// 					$_SESSION['email']
-// 					$_SESSION['username']
-// 					$_SESSION['rank_id']
-// 					$_SESSION['logged_in'] = true
-// 		}
 
+function logout() {
+	if (isLoggedIn()) {
+		session_destroy();
+		header("Location: index.php");
+	} else {
+		header("Location: index.php");
+	}
+}
  ?>
