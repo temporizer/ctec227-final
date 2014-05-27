@@ -31,7 +31,18 @@
 		</header> <!-- end header -->
 
 		<section id="sidebar">
+			<?php if(isLoggedIn()){?>
+		<p>Welcome, <?php echo $_SESSION['first_name']; ?>. <a href="logout.php">Logout</a></p>
+			<?php } else {
+				include('login.php');
+			} ?>
 
+			<div class="buttons">
+				<button>New Project</button>
+				<button>Print View</button>
+				<button>button3</button>
+				<button>button4</button>
+			</div>
 		</section> <!-- end sidebar -->
 
 		<section id="content">
