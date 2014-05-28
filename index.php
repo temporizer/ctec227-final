@@ -1,6 +1,12 @@
 <?php include 'includes/header.inc.php'; ?>
 
+<?php 
+$results = getProjects();
 
+echo "<pre>";
+print_r($results);
+echo "</pre>";
+?>
   
 
 <h1 class="mighty">List of Projects</h1>

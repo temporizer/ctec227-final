@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ob_start();
 include_once "connect.inc.php";
 
 
@@ -23,6 +24,7 @@ function login($username, $password) {
 		$_SESSION['username'] = $user['username'];
 		$_SESSION['rank_id'] = $user['rank_id'];
 		$_SESSION['logged_in'] = true;
+		header("Location: index.php");
 	} else {
 		$error = "Incorrect username/password combination";
 		echo $error;
@@ -48,4 +50,41 @@ function logout() {
 		header("Location: index.php");
 	}
 }
+
+function getUsers() {
+	$results = NULL;
+	$sql = "SELECT * FROM theUsers";
+	$query = mysqli_query($GLOBALS['dbc'], $sql);
+	
+	$num_rows = mysqli_num_rows($query);
+	for ($i=0; $i < $num_rows; $i++) { 
+		$results[] = mysqli_fetch_assoc($query);
+	}
+	return $results;
+}
+
+function getProjects($id=NULL) {
+	$results = NULL;
+	$sql = "SELECT * FROM theProjects";
+	if($id != NULL) {
+		$sql .= " WHERE user_id=$id";
+	}
+	$query = mysqli_query($GLOBALS['dbc'], $sql);
+	$num_rows = mysqli_num_rows($query);
+
+	for ($i=0; $i < $num_rows; $i++) { 
+		$results[] = mysqli_fetch_assoc($query);
+		$results[$i]['start_date'] = date('M d, Y', $results[$i]['start_date']);
+		$results[$i]['end_date'] = date('M d, Y', $results[$i]['end_date']);
+		unset($results[$i]['user_id']);
+	}
+	return $results;
+}
+
+
+
+
+
+
+ob_flush();
  ?>
