@@ -11,14 +11,14 @@ body {
 header{
   
   height: 140px;
-  background-color: #9DCE9D;
+  background-color: #B2D1D1;
 
 }
 h1 {margin-left:300px;
   margin-bottom: 30px;
 }
 h2 {
-  color: red;
+  color: #800000;
   margin-left:150px;
 }
 .logo{
@@ -41,31 +41,38 @@ table {
 }
 th{
   text-align: left;
-  background: gray;
+  background: #006666;
   color: white;
   padding: 0.4em;
 }
 td {
-  border: 1.5px solid black;
+  border: 1.5px solid #006666;
   padding: 0.4em;
 }
 .mighty {
-  font-size: 30px;
+  font-size: 25px;
   /*border:1.5px solid black;*/
-  font-family: Impact, Charcoal, sans-serif
+  font-family: Impact, Charcoal, sans-serif;
+  margin-top:25px;
 }
+#form p {
+  margin-top:10px;
+  margin-bottom:10px;
+  text-align:center;
 
+}
+#form input{
+  margin-left:10px;
+  margin-top:10px;
+}
 
 #sidebar {
   float: right;
   height: 100%;
   width: 300px;
-  border: 1px solid black;
-}
-
-.buttons {
-
-  border: 1px solid tomato;
+  border:10px solid #006666;
+  margin-top:20px;
+  margin-right:20px;
 }
 .buttons button {
 
@@ -73,6 +80,13 @@ td {
   width: 200px;
   height: 30px;
   margin: 10px auto;
+  font-size:15px;
+  border: 3px solid #006666;
+  background:#B2D1D1;
+  border-radius:5px;
+  padding-top:1px;
+  // margin-top:15px;
+  margin-bottom:15px;
 }
 #footer {
   width:100%;
@@ -93,5 +107,11 @@ td {
 strong {
   font-weight: bold;
 }
+
+
+
+
+
+
 
 @include sticky-footer(80px, '#wrapper', '#root_footer', '#footer');
