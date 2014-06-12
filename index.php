@@ -2,10 +2,10 @@
 
 <?php 
 $results = getProjects();
-
-// echo "<pre>";
-// print_r($results);
-// echo "</pre>";
+$result = getTasks();
+echo "<pre>";
+print_r($result);
+echo "</pre>";
 ?>
   
 

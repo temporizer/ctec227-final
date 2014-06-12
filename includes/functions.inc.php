@@ -81,6 +81,26 @@ function getProjects($id=NULL) {
 	return $results;
 }
 
+function getTasks($id = NULL) {
+	$results = NULL;
+	$sql = "SELECT * FROM getTasks WHERE user_id='5'";
+
+	$query = mysqli_query($GLOBALS['dbc'], $sql);
+	$num_rows = mysqli_num_rows($query);
+
+	for ($i = 0; $i < $num_rows; $i++) {
+		$results[] = mysqli_fetch_assoc($query);
+	}
+	return $results;
+}
+
+
+
+function checkPerm() {
+	if(isset($_SESSION['rank_id'])) {
+		$rank = $_SESSION['rank_id'];
+	}
+}
 
 
 
