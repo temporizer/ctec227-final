@@ -9,6 +9,9 @@
 	<title>Template</title>
 	<link rel="stylesheet" href="css/style.css" media="screen">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 </head>
@@ -37,12 +40,12 @@
 				include('login.php');
 			} ?>
 
-			<div class="buttons">
+			<!-- <div class="buttons">
 				<button>New Project</button>
 				<button>Print View</button>
 				<button>button3</button>
 				<button>button4</button>
-			</div>
+			</div> -->
 		</section> <!-- end sidebar -->
 
 		<section id="content">
