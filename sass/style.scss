@@ -12,6 +12,8 @@ header{
   
   height: 140px;
   background-color: #B2D1D1;
+  /*border: 5px solid #002929;*/
+
 
 }
 h1 {margin-left:300px;
@@ -81,13 +83,21 @@ td {
   height: 30px;
   margin: 10px auto;
   font-size:15px;
-  border: 3px solid #006666;
-  background:#B2D1D1;
+  border: 3px solid rgba(0,102,102,0);
+  background:rgba(178,209,209,1);
   border-radius:5px;
   padding-top:1px;
   // margin-top:15px;
   margin-bottom:15px;
+
 }
+.buttons button:hover {
+  //color: #800000;
+  cursor:pointer;
+  background: rgba(178,209,209,1);
+  border: 3px solid rgba(0,102,102,1);
+}
+
 #footer {
   width:100%;
   height:80px;
