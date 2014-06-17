@@ -16,23 +16,39 @@
 
 </head>
 <body>
-	<section id="wrapper">
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 logo">
-						<img src="images/GreenWell_bank.png" alt="logo of a green well">	
-					</div>
-					<div class="col-lg-8 title">
-						<h1 class="center">Greenwell Bank</h1>
-						<h2 class="center">Project Management System</h2>
-					</div>
+
+
+	<header>
+		<div class="container header-bg">
+			<div class="row">
+				<div class="col-lg-4 logo">
+					<img src="images/logo.png" alt="">					
 				</div>
-				<div class="row nav">
-					<div class="col-lg-12">
-						test
-					</div>
+				<div class="col-lg-8 heading">
+					<h1>GreenWell Bank</h1>
+					<h2>Project Management System</h2>
+					<?php echo (isLoggedIn()) ? "<div><h4>" . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "</h4><h4>" . $_SESSION['rank'] . "</h4></div>" : '' ?>
+				</div> <!-- end heading -->
+			</div> <!-- end row -->
+			<div class="row navigation">
+				<div class="col-lg-12">
+					<nav>
+						<?php 
+							if (isLoggedIn()) {
+						 ?>
+						<ul>
+							<li><a href="index.php">Home</a></li>
+							<?php echo ($_SESSION['rank_id'] < 3) ? '<li><a href="project.php">Create Project</a></li>' : ''; ?>
+							
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+						<?php 
+							}
+						 ?>
+					</nav>
 				</div>
-			</div>
-				
-		</header> <!-- end header -->
+			</div> <!-- end navigation -->
+		</div> <!-- end container -->
+	</header>
+	
+<section id="wrapper">

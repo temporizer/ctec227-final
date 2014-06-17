@@ -3,154 +3,205 @@
 @import "compass/layout/sticky-footer";
 
 html {
-	// width: 1100px;
+	
 }
 
 body {
 	font-family: Helvetica, sans-serif;
-	font-size: 1.4em;
+	font-size: 16px;
 	// width:1100px;
-	background-color: $bg; 
+	background-color: $bg;
+	position: relative;
+}
+
+header {
+	// padding-top: 15px;
+
+	margin: 0;
+	z-index: 100;
+	background-color: white;
+	position: fixed;
+	width: 100%;
+	// height: 120px;
+	.header-bg {
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		background-color: $main;
+		margin: 0 !important;
+		width: 100%;
+	}
+	nav {
+		text-align: center;
+		height: 37px;
+		ul {
+			margin: 0 auto;
+			display: inline-block;
+			// border: 1px solid black;
+			// text-align: center;
+			border-top: 1px dotted $main-full;
+
+			li {
+				display: inline-block;
+				// margin: 10px 40px;
+				margin: 0;
+				// border: 1px solid tomato;
+
+				a {
+					display: block;
+					padding: 8px 10px;
+				}
+
+				a:hover {
+					text-decoration: none;
+					background-color: $main-full;
+				}
+				
+			}
+		}
+	}
+
+	.heading {
+		position: relative;
+
+		div {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			margin: 0;
+			padding: 0;
+			text-align: right;
+
+			h4 {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+form {
+	// border: 1px solid red;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 60px 0;
+	background-color: rgba(0,208,10,0.1);
+	border-radius: 15px;
+	font-size: 16px;
+	text-align: center;
+	input {
+		padding: 10px;
+		margin-bottom: 25px;
+	}
+
+	a {
+		padding: 10px;
+		font-size: 16px;
+	}
+	p {
+		position: absolute;
+		left: 137px;
+		bottom: 15px;
+	}
+}
+
+.form {
+	padding-top: 15px;
+	position: relative;
+	h3 {
+		margin-bottom: 25px;
+	}
+	input {
+		width: 320px;
+	}
+
+	#start_date {
+		width: 150px;
+	}
+	#end_date {
+		width: 150px;
+		margin-left: 16px;
+	}
+	#description {
+		width: 320px;
+		height: 120px;
+		margin-bottom: 15px;
+	}
+	
+	#project_id {
+		position: absolute;
+		width: 50px;
+		top: 86px;
+		left: 250px;
+	}
+	div {
+		padding: 0 5px;
+
+		label {
+			width: 100px;
+		}
+	}
+	select {
+		display: inline-block;
+		-webkit-appearance: none;
+		height: 40px;
+		width: 150px;
+		padding-left: 15px;
+		margin-bottom: 20px;
+	}
+	#active {
+		margin-left: 16px;
+	}
+
+}
+
+table {
+	// width: 500px;
+	th {
+		font-weight: bold;
+	}
+	.pName {
+		width: 150px;
+	}
+	.desc {
+		width: 300px;
+	}
+	.manager {
+
+	}
+	.sDate {
+		width: 160px;
+	}
+	.eDate {
+		width: 160px;
+	}
+	.status {
+
+	}
 }
 
 #wrapper {
-	// position: relative;
-	// width: 1100px;
-
+	padding-top: 170px;
 }
-header{
-	// position: fixed;
-	// height: 140px;
-	// background-color: #B2D1D1;
+
+.projects {
+	box-sizing: border-box;
+	border: 1px solid $main;
+	border-radius: 15px;
+	margin: 10px 0 0 0;
+	padding: 15px 10px;
+}
+
+footer {
 	background-color: $main;
-	border-bottom: 5px solid $main_border;
-	padding: 10px 0 0 0;
-}
-
-
-.content {
 	position: relative;
-	border: 1px solid black;
-	overflow-y: scroll;
+
+	#date {
+		position: absolute;
+		bottom: 4px;
+		right: 4px;
+		margin: 0;
+		padding: 0;
+	}
 }
 
-.nav {
-	// background-color: black;
-	margin-top: 15px;
-	height: 35px;
-
-}
-
-
-// h1 {
-//   // margin-left:300px;
-//   margin-bottom: 30px;
-// }
-// h2 {
-//   color: #800000;
-//   // margin-left:150px;
-// }
-// .logo{
-//   width: 200px;
-//   height:120px;
-//   /*border:1px solid #808080;*/
-//   float:left;
-//   margin-left:30px;
-//   margin-top: 10px;
-// }
-// .title{
-//   text-align:center;
-//   padding-top: 50px;
-// }
-// table {
-//   // border-collapse: 
-//   border: 1px solid black;
-//   // margin-left: 60px;
-//   // margin-top: 25px;
-// }
-// th{
-//   text-align: left;
-//   background: #006666;
-//   color: white;
-//   padding: 0.4em;
-// }
-// td {
-//   border: 1.5px solid #006666;
-//   padding: 0.4em;
-// }
-// .mighty {
-//   font-size: 25px;
-//   /*border:1.5px solid black;*/
-//   font-family: Impact, Charcoal, sans-serif;
-//   // margin-top:25px;
-// }
-// #form p {
-//   margin-top:10px;
-//   margin-bottom:10px;
-//   text-align:center;
-
-// }
-// #form input{
-//   margin-left:10px;
-//   margin-top:10px;
-// }
-
-#sidebar {
-	// float: right;
-
-	height: 100%;
-	// width: 300px;
-	border-left: 5px solid $main_border;
-	position: fixed;
-	padding: 20px 0 0 20px;
-	// margin-right:20px;
-}
-// .buttons button {
-
-//   display: block;
-//   width: 200px;
-//   height: 30px;
-//   margin: 10px auto;
-//   font-size:15px;
-//   border: 3px solid rgba(0,102,102,0);
-//   background:rgba(178,209,209,1);
-//   border-radius:5px;
-//   padding-top:1px;
-//   // margin-top:15px;
-//   margin-bottom:15px;
-
-// }
-// .buttons button:hover {
-//   //color: #800000;
-//   cursor:pointer;
-//   background: rgba(178,209,209,1);
-//   border: 3px solid rgba(0,102,102,1);
-// }
-
-// #footer {
-//   width:100%;
-//   height:80px;
-//   background-color: #202020 ;
-// }
-// #footer a{
-//   color:#ffffff;
-//   float:right;
-//   padding-right:30px;
-// }
-// .white {
-//   color:#ffffff;
-//   margin-top:10px;
-//   padding-top:20px;
-//   text-align:center;
-// }
-// strong {
-//   font-weight: bold;
-// }
-
-
-
-
-
-
-
-@include sticky-footer(80px, '#wrapper', '#root_footer', '#footer');
+@include sticky-footer(40px, '#wrapper', '#root_footer', '#footer');
