@@ -1,7 +1,6 @@
 <?php 
 	include_once 'includes/functions.inc.php';
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,23 +15,24 @@
 
 </head>
 <body>
-	<section id="wrapper">
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 logo">
-						<img src="images/GreenWell_bank.png" alt="logo of a green well">	
-					</div>
-					<div class="col-lg-8 title">
-						<h1 class="center">Greenwell Bank</h1>
-						<h2 class="center">Project Management System</h2>
-					</div>
-				</div>
-				<div class="row nav">
-					<div class="col-lg-12">
-						test
-					</div>
-				</div>
-			</div>
-				
-		</header> <!-- end header -->
+
+<section id="wrapper">
+
+	
+
+
+
+
+
+
+	<div id="root_footer"></div>
+</section> <!-- end wrapper -->
+	<footer id="footer">
+		<p>&copy; Greenwell Bank 2014</p>
+		<p><a href="logout.php">Log Out</a></p>
+	</footer>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

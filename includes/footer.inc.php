@@ -1,12 +1,12 @@
-</section> <!-- end content -->
 		
 <div id="root_footer"></div>
-	</section> <!-- end wrapper -->
-		<footer id="footer">
-			<p class="white">&#169; Greenwell Bank 2014</p>
-			<p><a href="logout.php">Log Out</a></p>
+
+</section> <!-- end wrapper -->
+	<footer id="footer">
+		<p class="white">&#169; Greenwell Bank 2014</p>
+		<p><a href="logout.php">Log Out</a></p>
 			
-		</footer>
+	</footer>
 
 
 
