@@ -31,8 +31,8 @@
 		// print_r($result);
 		// echo "</pre>";
 		$project_name = $result['project_name'];
-		$start_date = date('m/d/Y', $result['start_date']);
-		$end_date = date('m/d/Y', $result['end_date']);
+		$start_date = $result['start_date'];
+		$end_date = $result['end_date'];
 		$description = $result['description'];
 		$project_id = $result['project_id'];
 		$status_id = $result['status_id'];

@@ -12,7 +12,7 @@ function login($username, $password) {
 	global $dbc;
 	global $error;
 	
-	$query = "SELECT * FROM curUser WHERE username='$username' AND pass=sha1('$password') AND active='1' LIMIT 1";
+	$query = "SELECT * FROM curuser WHERE username='$username' AND pass=sha1('$password') AND active='1' LIMIT 1";
 	$result = mysqli_query($dbc, $query);
 
 
@@ -56,7 +56,7 @@ function logout() {
 
 function getUsers() {
 	$results = NULL;
-	$sql = "SELECT * FROM theUsers";
+	$sql = "SELECT * FROM theusers";
 	$query = mysqli_query($GLOBALS['dbc'], $sql);
 	
 	$num_rows = mysqli_num_rows($query);
@@ -69,7 +69,7 @@ function getUsers() {
 
 function getProjects($id=NULL) {
 	$results = NULL;
-	$sql = "SELECT * FROM theProjects";
+	$sql = "SELECT * FROM theprojects";
 	if($id != NULL) {
 		$sql .= " WHERE user_id=$id";
 	}
@@ -86,7 +86,7 @@ function getProjects($id=NULL) {
 }
 
 function getEditProject($project) {
-	$sql = 'SELECT * FROM theProjects WHERE project_id=' . $project;
+	$sql = 'SELECT * FROM theprojects WHERE project_id=' . $project;
 	$query = mysqli_query($GLOBALS['dbc'], $sql);
 	if (mysqli_num_rows($query) == 1) {
 		$result = mysqli_fetch_assoc($query);
