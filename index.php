@@ -12,7 +12,7 @@ if ((isset($_SESSION['rank_id'])) && $_SESSION['rank_id'] == 1) {
 }
 
 
-$result = getTasks();
+//$result = getTasks();
 // echo "<pre>";
 // print_r($_SESSION);
 // echo "</pre>";
@@ -46,7 +46,7 @@ $result = getTasks();
 									foreach ($results as $key) {
 										echo "<tr>";
 										echo "<td>";
-										echo $key['project_name'];
+										echo '<a href="single.php?project_id=' . $key['project_id'] . '">' . $key['project_name'] . '</a>';
 										echo "</td><td>";
 										echo $key['description'];
 										echo "</td><td>";

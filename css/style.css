@@ -71,7 +71,7 @@ header {
 header .header-bg {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: rgba(0, 208, 10, 0.4);
+  background-color: rgba(0, 208, 10, 0.5);
   margin: 0 !important;
   width: 100%;
 }
@@ -201,22 +201,59 @@ table .eDate {
   padding-top: 170px;
 }
 
-.projects {
+.projects, .tasks {
   box-sizing: border-box;
-  border: 1px solid rgba(0, 208, 10, 0.4);
+  border: 1px dashed #00d00a;
   border-radius: 15px;
   margin: 10px 0 0 0;
   padding: 15px 10px;
+  background-color: rgba(0, 208, 10, 0.2);
+}
+
+.tasks {
+  position: relative;
+}
+.tasks h1, .tasks h2, .tasks h3, .tasks h4, .tasks h5, .tasks h6 {
+  margin: 0;
+  padding: 0;
+}
+.tasks #name, .tasks #manager, .tasks #sDate, .tasks #eDate, .tasks #status {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+.tasks #manager {
+  right: 10px;
+}
+.tasks #sDate {
+  bottom: 5px;
+  left: 10px;
+}
+.tasks #eDate {
+  bottom: 5px;
+  right: 10px;
+}
+.tasks #desc {
+  padding-top: 60px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+.tasks #status {
+  top: 55px;
+}
+.tasks .task-row {
+  margin-bottom: 25px;
 }
 
 footer {
-  background-color: rgba(0, 208, 10, 0.4);
+  background-color: rgba(0, 208, 10, 0.5);
   position: relative;
 }
 footer #date {
   position: absolute;
   bottom: 4px;
-  right: 4px;
+  right: 8px;
   margin: 0;
   padding: 0;
 }

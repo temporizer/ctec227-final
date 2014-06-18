@@ -185,10 +185,55 @@ table {
 
 .projects {
 	box-sizing: border-box;
-	border: 1px solid $main;
+	border: 1px dashed $main-full;
 	border-radius: 15px;
 	margin: 10px 0 0 0;
 	padding: 15px 10px;
+	background-color: $main-light;
+
+}
+
+.tasks {
+	@extend .projects;
+	position: relative;
+	// height: 200px;
+	h1, h2, h3, h4, h5, h6 {margin: 0; padding: 0;}
+	#name, #manager, #sDate, #eDate, #status {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+	}
+	#name {
+		// top: 0;
+		// left: 0;
+	}
+	#manager {
+		// top: 0;
+		right: 10px;
+	}
+	#sDate {
+		bottom: 5px;
+		left: 10px;
+	}
+	#eDate {
+		bottom: 5px;
+		right: 10px;
+	}
+	#desc {
+		padding-top: 60px;
+		margin-bottom: 20px;
+		// border: 1px solid tomato;
+		font-size: 22px;
+		text-align: center;
+		// left: 0;
+	}
+	#status {
+		top: 55px;
+		// left: 0;
+	}
+	.task-row {
+		margin-bottom: 25px;
+	}
 }
 
 footer {
@@ -198,7 +243,7 @@ footer {
 	#date {
 		position: absolute;
 		bottom: 4px;
-		right: 4px;
+		right: 8px;
 		margin: 0;
 		padding: 0;
 	}

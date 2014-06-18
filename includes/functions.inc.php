@@ -80,7 +80,7 @@ function getProjects($id=NULL) {
 		$results[] = mysqli_fetch_assoc($query);
 		$results[$i]['start_date'] = date('M d, Y', $results[$i]['start_date']);
 		$results[$i]['end_date'] = date('M d, Y', $results[$i]['end_date']);
-		unset($results[$i]['user_id']);
+		// unset($results[$i]['user_id']);
 	}
 	return $results;
 }
@@ -90,6 +90,8 @@ function getEditProject($project) {
 	$query = mysqli_query($GLOBALS['dbc'], $sql);
 	if (mysqli_num_rows($query) == 1) {
 		$result = mysqli_fetch_assoc($query);
+		$result['start_date'] = date('M d, Y', $result['start_date']);
+		$result['end_date'] = date('M d, Y', $result['end_date']);
 		return $result;
 	}
 }
@@ -107,18 +109,18 @@ function editProject($array) {
 }
 
 
-// function getTasks($id = NULL) {
-// 	$results = NULL;
-// 	$sql = "SELECT * FROM getTasks WHERE user_id='5'";
+function getTasks($id = NULL) {
+	$results = NULL;
+	$sql = "SELECT * FROM gettasks WHERE project_id='$id'";
 
-// 	$query = mysqli_query($GLOBALS['dbc'], $sql);
-// 	$num_rows = mysqli_num_rows($query);
+	$query = mysqli_query($GLOBALS['dbc'], $sql);
+	$num_rows = mysqli_num_rows($query);
 
-// 	for ($i = 0; $i < $num_rows; $i++) {
-// 		$results[] = mysqli_fetch_assoc($query);
-// 	}
-// 	return $results;
-// }
+	for ($i = 0; $i < $num_rows; $i++) {
+		$results[] = mysqli_fetch_assoc($query);
+	}
+	return $results;
+}
 
 
 

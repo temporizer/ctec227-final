@@ -39,6 +39,7 @@
 						<ul>
 							<li><a href="index.php">Home</a></li>
 							<?php echo ($_SESSION['rank_id'] < 3) ? '<li><a href="project.php">Create Project</a></li>' : ''; ?>
+							<?php echo (isset($task)) && (isset($_GET['project_id'])) ? '<li><a href="single.php?project_id=' . $_GET['project_id'] . '&addtask=' . $_GET['project_id'] . '">Add Task</a></li>' : ''; ?>
 							
 							<li><a href="logout.php">Logout</a></li>
 						</ul>
